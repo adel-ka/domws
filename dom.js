@@ -1,5 +1,7 @@
 var btn =document.getElementsByClassName("plus");
 var check=document.getElementsByClassName("check");
+var delete_elm=document.getElementsByClassName("delete");
+var like_elm=document.getElementsByClassName("like")
 for (var i = 0; i < btn.length; i++) {
   btn[i].addEventListener('click',function (event) {
     // console.log(event)
@@ -16,7 +18,7 @@ for (var i = 0; i < btn.length; i++) {
 //    console.log(price_tag)
    var price_value=Number(price_tag.innerHTML)
     price_value=quan_val*price_un
-   console.log(price_value)
+   // console.log(price_value)
    price_tag.innerHTML=price_value
 // //    console.log(price_un)
 // //    const unit_pr=tr_el.querySelector=".unitprice".innerTEXT;
@@ -39,7 +41,7 @@ for (var i = 0; i < btn.length; i++) {
    //  console.log(btn_plus)
    if (check_btn.checked===true) {
       total_value=total_value+price_value
-    console.log(total_value)
+   //  console.log(total_value)
     total_elem.innerHTML=total_value
     btn_plus.setAttribute("disabled",true);
     btn_minus.setAttribute("disabled",true);
@@ -53,7 +55,28 @@ for (var i = 0; i < btn.length; i++) {
    }
    
   })
-}
+  delete_elm[i].addEventListener('click',function(event){
+   // console.log(event)
+    const btn_del=event.target
+   //  console.log(btn_del)
+   const tr_del=btn_del.parentElement.parentElement.parentElement.parentElement.remove()
+   // console.log(tr_del)
+  })
+  like_elm[i].addEventListener('click',function(event){
+   const btn_like=event.target
+   console.log(btn_like.style)
+   if(btn_like.style.color===""){
+
+      btn_like.style.color="red"
+   }
+   else if(btn_like.style.color==="red"){
+      btn_like.style.color=""
+   }
+   // console.log(color)
+   // btn_like.style.color="red"
+      
+   
+})}
 var btn =document.getElementsByClassName("minus");
 for (var i = 0; i < btn.length; i++) {
   btn[i].addEventListener('click',function (event) {
@@ -86,4 +109,6 @@ for (var i = 0; i < btn.length; i++) {
 // // 
     
   });
+  
+
 }
